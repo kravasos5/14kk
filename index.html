@@ -5,172 +5,200 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Посвящается Кате</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-            body {
-            background-image: url('bg1.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            min-height: 100vh;
-        }
+    <link rel="icon" href="favico.png" type="image/x-icon">
+<style>
+    body {
+        background-image: url('bg1.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        min-height: 100vh;
+    }
 
-            body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.75);
-            z-index: 0;
-        }
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.75);
+        z-index: 0;
+    }
 
-        header, main, footer {
-            position: relative;
-            z-index: 1;
-        }
+    header, main, footer {
+        position: relative;
+        z-index: 1;
+    }
 
-            .btn-pink {
-            background-color: #ff69b4 !important;
-            border-color: #ff69b4 !important;
-            color: white !important;
-            box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
-            transition: all 0.3s;
-        }
+    .btn-pink {
+        background-color: #ff69b4 !important;
+        border-color: #ff69b4 !important;
+        color: white !important;
+        box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+        transition: all 0.3s;
+    }
 
-        .btn-pink:hover {
-            background-color: #ff4da6 !important;
-            border-color: #ff4da6 !important;
-            box-shadow: 0 0 25px rgba(255, 105, 180, 0.6);
+    .btn-pink:hover {
+        background-color: #ff4da6 !important;
+        border-color: #ff4da6 !important;
+        box-shadow: 0 0 25px rgba(255, 105, 180, 0.6);
+        transform: scale(1.05);
+    }
+
+    .btn-pink:active {
+        transform: scale(0.95);
+    }
+
+    .header-transparent {
+        background-color: rgba(0, 0, 0, 0.6) !important;
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 105, 180, 0.3);
+    }
+
+    .png-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+    }
+
+    .position-right {
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    .position-left {
+        margin-left: 0;
+        margin-right: auto;
+    }
+
+    .photo-col {
+        max-width: 90%;
+    }
+
+    @media (max-width: 768px) {
+        .photo-col {
+            max-width: 100%;
+        }
+        .png-image {
+            max-height: 50vh;
+        }
+    }
+
+    footer {
+        background-color: rgba(0, 0, 0, 0.7) !important;
+        backdrop-filter: blur(5px);
+        border-top: 1px solid rgba(255, 105, 180, 0.3);
+    }
+
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(200px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes heartbeat {
+        0% {
+            transform: scale(1);
+        }
+        20% {
             transform: scale(1.05);
         }
-
-        .btn-pink:active {
-            transform: scale(0.95);
+        35% {
+            transform: scale(1);
         }
-
-        .header-transparent {
-            background-color: rgba(0, 0, 0, 0.6) !important;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 105, 180, 0.3);
+        50% {
+            transform: scale(1.03);
         }
-
-        .png-container {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px 0;
+        65% {
+            transform: scale(1);
         }
-
-        .png-image {
-            cursor: pointer;
-            max-width: 100%;
-            width: auto;
-            height: auto;
-            max-height: 70vh;
-            object-fit: contain;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: block;
-            
-            filter: drop-shadow(0 0 0 transparent);
-            -webkit-filter: drop-shadow(0 0 0 transparent);
-        }
-
-        .png-image:hover {
-            filter: drop-shadow(0 0 5px #ff69b4) 
-                    drop-shadow(0 0 15px #ff69b4) 
-                    drop-shadow(0 0 25px #ff69b4);
-            -webkit-filter: drop-shadow(0 0 5px #ff69b4) 
-                           drop-shadow(0 0 15px #ff69b4) 
-                           drop-shadow(0 0 25px #ff69b4);
+        80% {
             transform: scale(1.02);
         }
-
-        .png-image:active {
-            transform: scale(0.98);
-            filter: drop-shadow(0 0 10px #ff1493) 
-                    drop-shadow(0 0 30px #ff1493);
-            -webkit-filter: drop-shadow(0 0 10px #ff1493) 
-                           drop-shadow(0 0 30px #ff1493);
+        100% {
+            transform: scale(1);
         }
+    }
 
-        .position-right {
-            margin-left: auto;
-            margin-right: 0;
-        }
+    .png-image {
+        cursor: pointer;
+        max-width: 100%;
+        width: auto;
+        height: auto;
+        max-height: 70vh;
+        object-fit: contain;
+        display: block;
+        transform-origin: center;
+        
+        opacity: 0;
+        
+        filter: drop-shadow(0 0 0 transparent);
+        -webkit-filter: drop-shadow(0 0 0 transparent);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
 
-        .position-left {
-            margin-left: 0;
-            margin-right: auto;
-        }
+    .png-image.visible {
+        opacity: 1;
+        animation: fadeInUp 2s ease forwards, 
+                   heartbeat 2.5s ease-in-out 2.1s infinite;
+    }
 
-        .photo-col {
-            max-width: 90%;
-        }
+    .png-image.visible:hover {
+        filter: drop-shadow(0 0 5px #ff69b4) 
+                drop-shadow(0 0 15px #ff69b4) 
+                drop-shadow(0 0 25px #ff69b4);
+        -webkit-filter: drop-shadow(0 0 5px #ff69b4) 
+                       drop-shadow(0 0 15px #ff69b4) 
+                       drop-shadow(0 0 25px #ff69b4);
+        
+        animation: fadeInUp 2s ease forwards, 
+                   heartbeat 1s ease-in-out infinite;
+    }
 
-        @media (max-width: 768px) {
-            .photo-col {
-                max-width: 100%;
-            }
-            
-            .png-image {
-                max-height: 50vh;
-            }
-        }
+    .png-image.visible:active {
+        transform: scale(0.98);
+        filter: drop-shadow(0 0 10px #ff1493) 
+                drop-shadow(0 0 30px #ff1493);
+        -webkit-filter: drop-shadow(0 0 10px #ff1493) 
+                       drop-shadow(0 0 30px #ff1493);
+    }
 
-        footer {
-            background-color: rgba(0, 0, 0, 0.7) !important;
-            backdrop-filter: blur(5px);
-            border-top: 1px solid rgba(255, 105, 180, 0.3);
-        }
+    .modal-content {
+        background-color: transparent !important;
+    }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(200px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+    .modal-backdrop {
+        background-color: rgba(0, 0, 0, 0.9) !important;
+    }
 
-        .png-image {
-            opacity: 0;
-        }
+    .modal-backdrop.show {
+        opacity: 0.95 !important;
+    }
 
-        .png-image.visible {
-            animation: fadeInUp 2s ease forwards;
-        }
+    .btn-close-white {
+        filter: drop-shadow(0 0 10px #ff69b4);
+        transition: all 0.3s;
+    }
 
-        .modal-content {
-            background-color: transparent !important;
-        }
+    .btn-close-white:hover {
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 15px #ff69b4) drop-shadow(0 0 25px #ff69b4);
+    }
 
-        .modal-backdrop {
-            background-color: rgba(0, 0, 0, 0.9) !important;
-        }
-
-        .modal-backdrop.show {
-            opacity: 0.95 !important;
-        }
-
-        .btn-close-white {
-            filter: drop-shadow(0 0 10px #ff69b4);
-            transition: all 0.3s;
-        }
-
-        .btn-close-white:hover {
-            transform: scale(1.1);
-            filter: drop-shadow(0 0 15px #ff69b4) drop-shadow(0 0 25px #ff69b4);
-        }
-
-        #modalImage {
-            border: 2px solid rgba(255, 105, 180, 0.3);
-            box-shadow: 0 0 30px rgba(255, 105, 180, 0.2);
-        }
-    </style>
+    #modalImage {
+        border: 2px solid rgba(255, 105, 180, 0.3);
+        box-shadow: 0 0 30px rgba(255, 105, 180, 0.2);
+        animation: none;
+    }
+</style>
 </head>
 <body>
 
@@ -206,7 +234,6 @@
                             <div class="photo-col" style="width: 80%;">
                                 <div class="png-container">
                                     <img src="c1.png" 
-                                         alt="PNG Горы" 
                                          class="png-image"
                                          style="cursor: pointer;">
                                 </div>
@@ -221,7 +248,6 @@
                             <div class="photo-col" style="width: 80%;">
                                 <div class="png-container">
                                     <img src="c2.png" 
-                                         alt="PNG Океан" 
                                          class="png-image"
                                          style="cursor: pointer;">
                                 </div>
@@ -236,7 +262,6 @@
                             <div class="photo-col" style="width: 80%;">
                                 <div class="png-container">
                                     <img src="c3.png" 
-                                         alt="PNG Город" 
                                          class="png-image"
                                          style="cursor: pointer;">
                                 </div>
@@ -251,7 +276,6 @@
                             <div class="photo-col" style="width: 80%;">
                                 <div class="png-container">
                                     <img src="c4.png" 
-                                         alt="PNG Лес" 
                                          class="png-image"
                                          style="cursor: pointer;">
                                 </div>
@@ -266,7 +290,6 @@
                             <div class="photo-col" style="width: 80%;">
                                 <div class="png-container">
                                     <img src="c5.png" 
-                                         alt="PNG Звезды" 
                                          class="png-image"
                                          style="cursor: pointer;">
                                 </div>
@@ -281,7 +304,6 @@
                             <div class="photo-col" style="width: 80%;">
                                 <div class="png-container">
                                     <img src="c6.png" 
-                                         alt="PNG Луна" 
                                          class="png-image"
                                          style="cursor: pointer;">
                                 </div>
